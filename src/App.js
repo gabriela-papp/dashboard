@@ -25,7 +25,7 @@ import { useStateContext } from './contexts/ContextProvider'
 import './App.css'
 
 function App() {
-  const { activeMenu, themeSetting } = useStateContext()
+  const { activeMenu, themeSetting, setThemeSetting } = useStateContext()
   return (
     <div className="App">
       <BrowserRouter>
@@ -35,6 +35,7 @@ function App() {
               <button
                 type="button"
                 className="text-3xl p-3 hover:drop-shadow-xl"
+                onClick={() => setThemeSetting(true)}
               >
                 <FiSettings />
               </button>
