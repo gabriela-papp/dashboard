@@ -27,7 +27,7 @@ const Area = () => {
       height='420px'
       primaryXAxis={areaPrimaryXAxis}
       primarYAxis={areaPrimaryYAxis}
-      chrtArea={{border:{with:0}}}
+      chartArea={{border:{with:0}}}
       tooltip={{enable:true}}
       background={currentMode==='Dark'?'#33373e':'#fff'}
     >
