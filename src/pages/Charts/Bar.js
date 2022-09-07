@@ -1,11 +1,14 @@
 import React from 'react'
 import {
-  BarSeries,
-  Category,
   ChartComponent,
-  Inject,
   SeriesCollectionDirective,
   SeriesDirective,
+  Inject,
+  Legend,
+  Category,
+  Tooltip,
+  ColumnSeries,
+  DataLabel,
 } from '@syncfusion/ej2-react-charts'
 import { Header } from '../../components'
 
@@ -22,14 +25,16 @@ const Bar = () => {
     <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
       <Header category="Bar" title="Inflation Rate Percentage" />
       <ChartComponent
-        id="bar"
-        height="420px"
+        id="charts"
         primaryXAxis={barPrimaryXAxis}
         primarYAxis={barPrimaryYAxis}
+        chartArea={{ border: { width: 0 } }}
         tooltip={{ enable: true }}
         background={currentMode === 'Dark' ? '#33373e' : '#fff'}
       >
-        <Inject services={[BarSeries, Category]} />
+        <Inject
+          services={[ColumnSeries, Legend, Tooltip, Category, DataLabel]}
+        />
         <SeriesCollectionDirective>
           {barCustomSeries.map((item, index) => (
             <SeriesDirective key={index} {...item} />
